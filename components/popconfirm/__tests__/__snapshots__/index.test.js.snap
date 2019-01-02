@@ -56,7 +56,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
             class="cuke-popconfirm-button-group"
           >
             <button
-              class="cuke-button cuke-button-default cuke-button-normal cuke-button-small"
+              class="cuke-button cuke-button-default cuke-button-normal cuke-button-size-small"
               type="button"
             >
               <span>
@@ -64,7 +64,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
               </span>
             </button>
             <button
-              class="cuke-button cuke-button-primary cuke-button-small"
+              class="cuke-button cuke-button-primary cuke-button-size-small"
               type="button"
             >
               <span>
@@ -137,7 +137,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
             class="cuke-popconfirm-button-group"
           >
             <button
-              class="cuke-button cuke-button-default cuke-button-normal cuke-button-small"
+              class="cuke-button cuke-button-default cuke-button-normal cuke-button-size-small"
               type="button"
             >
               <span>
@@ -145,7 +145,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
               </span>
             </button>
             <button
-              class="cuke-button cuke-button-primary cuke-button-small"
+              class="cuke-button cuke-button-primary cuke-button-size-small"
               type="button"
             >
               <span>
@@ -223,7 +223,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
             class="cuke-popconfirm-button-group"
           >
             <button
-              class="cuke-button cuke-button-default cuke-button-normal cuke-button-small"
+              class="cuke-button cuke-button-default cuke-button-normal cuke-button-size-small"
               type="button"
             >
               <span>
@@ -231,7 +231,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
               </span>
             </button>
             <button
-              class="cuke-button cuke-button-primary cuke-button-small"
+              class="cuke-button cuke-button-primary cuke-button-size-small"
               type="button"
             >
               <span>
@@ -309,7 +309,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
             class="cuke-popconfirm-button-group"
           >
             <button
-              class="cuke-button cuke-button-default cuke-button-normal cuke-button-small"
+              class="cuke-button cuke-button-default cuke-button-normal cuke-button-size-small"
               type="button"
             >
               <span>
@@ -317,7 +317,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
               </span>
             </button>
             <button
-              class="cuke-button cuke-button-primary cuke-button-small"
+              class="cuke-button cuke-button-primary cuke-button-size-small"
               type="button"
             >
               <span>
@@ -395,7 +395,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
             class="cuke-popconfirm-button-group"
           >
             <button
-              class="cuke-button cuke-button-default cuke-button-normal cuke-button-small"
+              class="cuke-button cuke-button-default cuke-button-normal cuke-button-size-small"
               type="button"
             >
               <span>
@@ -403,7 +403,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
               </span>
             </button>
             <button
-              class="cuke-button cuke-button-primary cuke-button-small"
+              class="cuke-button cuke-button-primary cuke-button-size-small"
               type="button"
             >
               <span>
@@ -433,6 +433,7 @@ exports[`<Popconfirm/> should render a <Popconfirm/> components 1`] = `
 exports[`<Popconfirm/> should render custom icon 1`] = `
 <Popover
   className="cuke-popconfirm"
+  disabled={false}
   hiddenArrow={false}
   onVisibleChange={[Function]}
   position="top"
@@ -515,6 +516,7 @@ exports[`<Popconfirm/> should render custom position 1`] = `
   <Popconfirm
     cancelButtonProps={Object {}}
     cancelText="取消"
+    disabled={false}
     hiddenArrow={false}
     icon={<WarningIcon />}
     okButtonProps={Object {}}
@@ -547,6 +549,7 @@ exports[`<Popconfirm/> should render custom position 1`] = `
   <Popconfirm
     cancelButtonProps={Object {}}
     cancelText="取消"
+    disabled={false}
     hiddenArrow={false}
     icon={<WarningIcon />}
     okButtonProps={Object {}}
@@ -579,6 +582,7 @@ exports[`<Popconfirm/> should render custom position 1`] = `
   <Popconfirm
     cancelButtonProps={Object {}}
     cancelText="取消"
+    disabled={false}
     hiddenArrow={false}
     icon={<WarningIcon />}
     okButtonProps={Object {}}
@@ -611,6 +615,7 @@ exports[`<Popconfirm/> should render custom position 1`] = `
   <Popconfirm
     cancelButtonProps={Object {}}
     cancelText="取消"
+    disabled={false}
     hiddenArrow={false}
     icon={<WarningIcon />}
     okButtonProps={Object {}}

@@ -8,7 +8,8 @@ import { ArrowLeftIcon, ArrowRightIcon } from "../icon";
 export default class Calendar extends React.PureComponent {
   static defaultProps = {
     prefixCls: "cuke-calendar",
-    loading: false
+    loading: false,
+    miniMode: false
   };
   static propTypes = {
     prefixCls: PropTypes.string.isRequired,
@@ -17,7 +18,8 @@ export default class Calendar extends React.PureComponent {
     dateCellRender: PropTypes.func,
     format: PropTypes.string,
     loading: PropTypes.bool,
-    tip: PropTypes.any
+    tip: PropTypes.any,
+    miniMode: PropTypes.bool
   };
 
   static getDerivedStateFromProps({ value }, { momentSelected }) {
@@ -53,11 +55,20 @@ export default class Calendar extends React.PureComponent {
       }
     );
   };
-  selectedDate = date => () => {
+  selectedDate = date => isNextMonth => () => {
+    let momentSelected = this.state.momentSelected.clone();
+
+    if (isNextMonth === true) {
+      momentSelected.add(1, "month").date(date);
+    } else if (isNextMonth === false) {
+      momentSelected.subtract(1, "month").date(date);
+    } else {
+      momentSelected.date(date);
+    }
     this.setState(
       {
         selectedDate: date,
-        momentSelected: this.state.momentSelected.clone().date(date)
+        momentSelected
       },
       () => {
         if (this.props.onChange) {
@@ -88,12 +99,20 @@ export default class Calendar extends React.PureComponent {
         </div>
 
         <div className={`${prefixCls}-content`}>
-          {new Array(weekdayInMonth - 1).fill(null).map((_, index) => (
-            <span
-              className={cls(`${prefixCls}-item`)}
-              key={`first-date-${index}`}
-            />
-          ))}
+          {new Array(weekdayInMonth - 1).fill(null).map((_, weekday) => {
+            const date = moment()
+              .weekday(weekday)
+              .date();
+            return (
+              <span
+                className={cls(`${prefixCls}-item`, `${prefixCls}-last-month`)}
+                key={`first-date-${date}`}
+                onClick={this.selectedDate(date)(false)}
+              >
+                {date}
+              </span>
+            );
+          })}
 
           {new Array(daysInMonth).fill(null).map((_, date) => (
             <span
@@ -106,7 +125,7 @@ export default class Calendar extends React.PureComponent {
                 }
               )}
               key={`date-${date}`}
-              onClick={this.selectedDate(date + 1)}
+              onClick={this.selectedDate(date + 1)()}
             >
               {date + 1}
               <div className={cls(`${prefixCls}-item-content`)}>
@@ -124,7 +143,8 @@ export default class Calendar extends React.PureComponent {
             .map((_, date) => (
               <span
                 className={cls(`${prefixCls}-item`, `${prefixCls}-next-month`)}
-                key={`placeholder-${date}`}
+                key={`next-date-${date}`}
+                onClick={this.selectedDate(date + 1)(true)}
               >
                 {date + 1}
               </span>
@@ -141,10 +161,16 @@ export default class Calendar extends React.PureComponent {
       tip,
       onMonthChange, //eslint-disable-line
       dateCellRender, //eslint-disable-line
+      miniMode,
       ...attr
     } = this.props;
     return (
-      <div className={cls(prefixCls, className)} {...attr}>
+      <div
+        className={cls(prefixCls, className, {
+          [`${prefixCls}-mini`]: miniMode
+        })}
+        {...attr}
+      >
         <Spin spinning={loading} tip={tip} size="large">
           <div className={cls(`${prefixCls}-header`)}>
             <ArrowLeftIcon
